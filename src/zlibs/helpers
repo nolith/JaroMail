@@ -168,7 +168,7 @@ is_online() {
 	    ;;
 	host)
 	    func "trying to connect ${_host} port ${_port}"
-	    nc -w 16 -z ${_host} ${_port} > /dev/null
+	    (which tcping && tcping -t 1 ${_host} ${_port} > /dev/null) || nc -w 16 -z ${_host} ${_port} > /dev/null
 	    { test $? = 0 } || {
 		error "Host unreachable: $_host"
 		act "Network connection is checked with 16s timeout"

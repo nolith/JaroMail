@@ -158,6 +158,7 @@ case $distro in
 	which fetchmail || sudo yum install fetchmail
 	which wipe || sudo yum install wipe
 	which abook || sudo yum install abook
+	which tcping || sudo yum install tcping
 
 	echo "Checking build dependencies"
 	which gcc || sudo yum install gcc
